@@ -11,10 +11,11 @@ import javax.swing.JTextPane;
 import javax.swing.SpringLayout;
 
 
+@SuppressWarnings("serial")
 public class TextAdventureFrame extends JFrame
 {
 	Control control;
-	private TextAdventureGeneralPanel menuPanel;
+	public TextAdventureGeneralPanel menuPanel;
 	private JPanel cardPanel;
 	
 	public TextAdventureFrame(Control control)
@@ -22,13 +23,7 @@ public class TextAdventureFrame extends JFrame
 		super();
 		this.control = control;
 		this.menuPanel = new TextAdventureGeneralPanel(this.control);
-		//holds all the different panels
 		this.cardPanel = new JPanel(new CardLayout());
-		
-		//chatPane
-//		add(chatPane);
-//		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-//		chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		setupFrame();
 	}
@@ -37,6 +32,10 @@ public class TextAdventureFrame extends JFrame
 	 * Method responsible for setting up the frame (and changing the background color)
 	 */
 	private void setupFrame() {
+		
+		cardPanel.add(menuPanel, "Menu");
+		menuPanel.setBackground(Color.BLACK);
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setContentPane(cardPanel);
 		this.setSize(1000, 600);

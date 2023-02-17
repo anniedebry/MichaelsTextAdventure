@@ -15,8 +15,9 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
+@SuppressWarnings("serial")
 public class TextAdventureGeneralPanel extends JPanel{
-	private Control controller;
+	Control controller;
 	private JPanel menuPanel; 
 	private SpringLayout layout;
 	private JScrollPane textPane;
@@ -26,21 +27,31 @@ public class TextAdventureGeneralPanel extends JPanel{
 	public TextAdventureGeneralPanel(Control controller) {
 		super();
 		this.controller = controller;
-	}
-	
-	public void setupPanel() {
 		this.setLayout(layout);
-		this.add(menuPanel);
 		this.textField = new JTextField("Type here", 50);
 		this.textPane = new JScrollPane(displayTextPane);
 		this.layout = new SpringLayout();
-		this.setLayout(layout);
+		layout.putConstraint(SpringLayout.NORTH, textField, 6, SpringLayout.SOUTH, textPane);
+		layout.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.WEST, textPane);
+		layout.putConstraint(SpringLayout.EAST, textField, 0, SpringLayout.EAST, textPane);
+		layout.putConstraint(SpringLayout.NORTH, textPane, 340, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, textPane, 10, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, textPane, -30, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.EAST, textPane, -10, SpringLayout.EAST, this);
 		this.menuPanel = new JPanel(new GridLayout(0, 1));
 		
+		setupPanel();
 		setupTextPane();
-		updateDisplay();
-		setupListeners();
 	}
+	
+	public void setupPanel() {
+		this.add(textField);
+		this.add(textPane);
+		this.setLayout(layout);
+		this.add(menuPanel);
+		
+	}
+
 	
 	/**
 	 * method for showing images on the panel
@@ -83,6 +94,7 @@ public class TextAdventureGeneralPanel extends JPanel{
 		Style style = doc.addStyle("StyleName", null);
 		//adding displayTextPane to the frame
 		displayTextPane.setEditable(false); 
-		this.add(displayTextPane);
 	}
+	
+	
 }
