@@ -14,14 +14,15 @@ import javax.swing.SpringLayout;
 public class TextAdventureFrame extends JFrame
 {
 	Control control;
-	private MichaelsTextAdventureGeneralPanel menuPanel;
+	private TextAdventureGeneralPanel menuPanel;
 	private JPanel cardPanel;
 	
 	public TextAdventureFrame(Control control)
 	{
 		super();
 		this.control = control;
-		this.menuPanel = new MichaelsTextAdventureGeneralPanel(this.control);
+		this.menuPanel = new TextAdventureGeneralPanel(this.control);
+		//holds all the different panels
 		this.cardPanel = new JPanel(new CardLayout());
 		
 		//chatPane
@@ -32,6 +33,9 @@ public class TextAdventureFrame extends JFrame
 		setupFrame();
 	}
 	
+	/**
+	 * Method responsible for setting up the frame (and changing the background color)
+	 */
 	private void setupFrame() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setContentPane(cardPanel);

@@ -6,12 +6,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
-public class MichaelsTextAdventureGeneralPanel extends JPanel{
+public class TextAdventureGeneralPanel extends JPanel{
 	private Control controller;
 	private JPanel menuPanel; 
 	private SpringLayout layout;
 	
-	public MichaelsTextAdventureGeneralPanel(Control controller) {
+	public TextAdventureGeneralPanel(Control controller) {
 		super();
 		this.controller = controller;
 	}

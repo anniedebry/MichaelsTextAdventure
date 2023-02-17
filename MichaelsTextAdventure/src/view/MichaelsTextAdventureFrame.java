@@ -1,6 +1,6 @@
 package view;
 
-public class MichaelsTextAdventureFrame 
+public class MichaelsTextAdventure 
 {
 	public static void main(String [] args)
 	{
