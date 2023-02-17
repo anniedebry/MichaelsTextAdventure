@@ -18,6 +18,7 @@ public class Control implements Runnable
 {
 
 	TextAdventureFrame view;
+	GeneralText mainText;
 	Map<String, BufferedImage> countMap;
 	
 	public Control()
@@ -30,6 +31,7 @@ public class Control implements Runnable
 	{
 		countMap = new TreeMap<String, BufferedImage>();
 		view = new TextAdventureFrame(this);
+		this.mainText = new GeneralText();
 	}
 	
 	/**
@@ -59,5 +61,33 @@ public class Control implements Runnable
 			return null;
 		}
 	}
+	
+	//returns inputed response
+		public String processText(String text) 
+		{
+			String response = "";
+			
+			//how chatbot responds
+			response += mainText.processText(text) + ("\n");
+			
+			return response;
+		}
+		
+		public String interactWithChatbot(String text) 
+		{
+			String response = "";
+			
+			//the display set up of your text
+			response += ("(You): ") + text + ("\n");
+			
+			return response;
+		}
+		
+		//catching errors
+		public void handleError(Exception error) 
+		{
+			String details = "Your error is: " + error.getMessage();
+			System.out.println(details);
+		}
 
 }

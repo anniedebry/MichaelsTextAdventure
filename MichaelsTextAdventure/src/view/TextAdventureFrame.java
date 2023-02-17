@@ -15,14 +15,14 @@ import javax.swing.SpringLayout;
 public class TextAdventureFrame extends JFrame
 {
 	Control control;
-	public TextAdventureGeneralPanel menuPanel;
+	public TextAdventureStoryPanel menuPanel;
 	private JPanel cardPanel;
 	
 	public TextAdventureFrame(Control control)
 	{
 		super();
 		this.control = control;
-		this.menuPanel = new TextAdventureGeneralPanel(this.control);
+		this.menuPanel = new TextAdventureStoryPanel(this.control);
 		this.cardPanel = new JPanel(new CardLayout());
 		
 		setupFrame();
